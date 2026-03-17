@@ -37,7 +37,7 @@ export default function HomePage() {
             <Compass className="w-4 h-4" />
             <span>Destination Casamance</span>
           </div>
-          <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-white leading-tight sm:leading-none mb-6 tracking-tight animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight sm:leading-none mb-6 tracking-tight animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150">
             Niafrang village
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200 inline-block pb-2">
               touristique en Casamance.
@@ -197,22 +197,22 @@ export default function HomePage() {
                   key={service.id}
                   className="group bg-white/70 backdrop-blur-xl border-white/80 shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-emerald-900/10 rounded-[2rem] transition-all duration-300 hover:-translate-y-2 border-transparent hover:border-emerald-100/50 overflow-hidden"
                 >
-                  <CardHeader className="p-8 pb-0">
-                    <div className="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-8 isolate relative">
-                      <div className="absolute inset-0 bg-emerald-600 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300" />
-                      <IconComponent className="h-7 w-7 group-hover:scale-110 transition-transform duration-300" />
+                  <CardHeader className="p-6 pb-0">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 isolate relative">
+                      <div className="absolute inset-0 bg-emerald-600 opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300" />
+                      <IconComponent className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
                     </div>
-                    <CardTitle className="text-2xl font-bold text-slate-900 mb-4">
+                    <CardTitle className="text-xl font-bold text-slate-900 mb-2">
                       {service.name}
                     </CardTitle>
-                    <CardDescription className="text-slate-600 text-base leading-relaxed">
+                    <CardDescription className="text-slate-600 text-sm leading-relaxed">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="p-8 pt-8">
+                  <CardContent className="p-6 pt-4">
                     <Link
                       href="#"
-                      className="inline-flex items-center text-sm font-bold text-slate-900 group-hover:text-emerald-600 transition-colors uppercase tracking-wider"
+                      className="inline-flex items-center text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition-colors uppercase tracking-wider"
                     >
                       En savoir plus
                       <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
