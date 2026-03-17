@@ -5,140 +5,185 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
+  CardContent,
 } from "@/components/ui/card";
 import { services } from "@/data/services";
-import { MapPin, Home, Utensils } from "lucide-react";
+import { images } from "@/data/images";
+import { MapPin, Home, Utensils, ChevronRight, Compass } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
-  // liste image
-  const images = [
-    {
-      id: 1,
-      name: "Plages de Niafrang",
-      description:
-        "Découvrez les plages préservées et cristallines de Niafrang où le sable blanc rencontre les eaux turquoise.",
-      src: "/images/plage.jpg",
-    },
-    {
-      id: 2,
-      name: "Forêts de Mangroves",
-      description:
-        "Explorez les mystérieuses mangroves de la Casamance, un écosystème riche et vital pour la région.",
-      src: "/images/mangrove.jpg",
-    },
-    {
-      id: 3,
-      name: "Arbre Sacré du Fromager",
-      description:
-        "Visitez le majestueux fromager, symbole spirituel et historique au cœur de Niafrang.",
-      src: "/images/fromager.jpg",
-    },
-  ];
+
+
   return (
-    <>
-      {/* hero section */}
-      <main
-        style={{
-          backgroundImage: "url('/images/plage.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <section className="min-h-screen p-10 flex flex-col justify-center items-center bg-black/80">
-          <div className="text-center text-white space-y-2">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold">
-              Niafrang village de tourisme en{" "}
-              <span className="text-green-800">Casamance</span> au Sénégal
-            </h1>
-            <p className="text-lg">
-              Découvrez Niafrang un village touristque en Casamance où vous
-              vivez avec la nature et la culture
-            </p>
+    <div className="bg-slate-50 relative selection:bg-emerald-200">
+      {/* HERO SECTION */}
+      <main className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+        {/* Background Image & Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/plage.jpg"
+            alt="Plages de Niafrang"
+            fill
+            className="object-cover object-center scale-105 animate-in slide-in-from-bottom-4 duration-1000"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/40 to-transparent mix-blend-multiply" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-50 to-transparent" />
+        </div>
+
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center justify-center text-center mt-20">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-sm font-medium animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <Compass className="w-4 h-4" />
+            <span>Destination Casamance</span>
+          </div>
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-white leading-tight sm:leading-none mb-6 tracking-tight animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-150">
+            Niafrang village
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200 inline-block pb-2">
+              touristique en Casamance.
+            </span>
+          </h1>
+          <p className="max-w-2xl text-lg sm:text-xl text-white/80 font-light leading-relaxed mb-10 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
+            Évadez-vous dans un village balnéaire authentique où la nature
+            sauvage embrasse une culture vibrante et chaleureuse.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500 w-full sm:w-auto">
             <Button
-              size={"xl"}
-              className="py-2 text-lg bg-green-800 cursor-pointer"
+              size="lg"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-8 py-7 text-lg font-medium shadow-lg shadow-emerald-900/40 transition-all hover:scale-105"
+            >
+              À propos de Niafrang
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-md rounded-full px-8 py-7 text-lg font-medium transition-all"
             >
               Découvrir Niafrang
             </Button>
           </div>
-        </section>
+        </div>
       </main>
 
-      {/* about */}
-      <section className="py-20 px-10 bg-gradient-to-r from-green-50 to-blue-50">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
-          <div className="md:w-1/2 relative h-72">
-            <Image
-              src="/images/mangrove.jpg"
-              alt="Mangrove de Niafrang"
-              sizes="(min-width: 768px) 50vw, 100vw"
-              fill
-              className="rounded-lg shadow-lg object-cover"
-            />
+      {/* ABOUT SECTION */}
+      <section className="relative py-24 md:py-32 px-6 lg:px-12 overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          <div className="w-full lg:w-1/2 relative">
+            <div className="aspect-video rounded-3xl overflow-hidden shadow-2xl relative z-10 transform transition-transform hover:scale-[1.02] duration-500">
+              <Image
+                src="/images/mangrove.jpg"
+                alt="Mangrove de Niafrang"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            {/* Decorative background element */}
+            <div className="absolute -bottom-10 -left-10 w-full h-full border-2 border-emerald-500/20 rounded-3xl z-0" />
+            <div className="absolute top-10 -right-10 w-64 h-64 bg-emerald-100 rounded-full blur-3xl opacity-60 z-0" />
           </div>
-          <div className="md:w-1/2 text-center md:text-left">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
-              À propos de Niafrang
-            </h2>
-            <p className="text-lg text-gray-600 mb-4">
+
+          <div className="w-full lg:w-1/2 space-y-8 relative z-10">
+            <div className="inline-flex items-center gap-2">
+              <span className="w-8 h-px bg-emerald-600"></span>
+              <h2 className="text-emerald-600 font-semibold tracking-wider uppercase text-sm">
+                À propos de Niafrang
+              </h2>
+            </div>
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.15]">
+              Une harmonie parfaite entre <span className="italic font-light text-slate-700">nature et traditions</span>.
+            </h3>
+            <p className="text-lg text-slate-600 leading-relaxed">
               Plongez au cœur de la Casamance, où Niafrang vous invite à une
               aventure authentique. Ici, la nature sauvage rencontre une culture
               riche et chaleureuse, vous permettant de vivre des moments
-              inoubliables en harmonie avec l'environnement.
+              inoubliables en harmonie totale avec l'environnement.
             </p>
-            <p className="text-lg text-gray-600 mb-6">
-              Ressentez l'émotion de marcher sur des plages préservées,
-              d'explorer des mangroves mystérieuses et de partager des
-              traditions ancestrales avec les habitants. Niafrang n'est pas
-              seulement une destination, c'est une expérience qui touche l'âme.
-            </p>
-            <Button className="bg-green-800 hover:bg-green-700 text-white px-6 py-3 rounded-lg">
-              En savoir plus
-            </Button>
+            <div className="pt-4">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors group"
+              >
+                Lire notre histoire
+                <span className="bg-emerald-100 group-hover:bg-emerald-200 p-2 rounded-full transition-colors">
+                  <ChevronRight className="w-4 h-4" />
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-      {/* images Niafrang */}
-      <section className="py-20 px-10 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-800 mb-12 text-center">
-            Galerie de Niafrang
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {/* GALLERY BENTO GRID */}
+      <section className="py-24 px-6 lg:px-12 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <span className="w-8 h-px bg-emerald-600"></span>
+                <h2 className="text-emerald-600 font-semibold tracking-wider uppercase text-sm">
+                  Galerie immersive
+                </h2>
+              </div>
+              <h3 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+                Paysages à couper le souffle.
+              </h3>
+            </div>
+            <Button variant="outline" className="rounded-full shrink-0 border-slate-200 text-slate-700 hover:bg-slate-50 px-6">
+              Voir toute la galerie
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {images.map((image) => (
-              <Card
+              <div
                 key={image.id}
-                className=" pt-0 overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                className="relative group rounded-3xl overflow-hidden cursor-pointer aspect-video"
               >
-                <div className="relative h-48 w-full">
-                  <Image
-                    src={image.src}
-                    alt={image.name}
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-xl text-green-800">
-                    {image.name}
-                  </CardTitle>
-                  <CardDescription className="text-gray-600">
+                <Image
+                  src={image.src}
+                  alt={image.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                  <h4 className="text-2xl font-bold text-white mb-2">{image.name}</h4>
+                  <p className="text-white/80 text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     {image.description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* nos services */}
-      <section className="py-20 px-10 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-800 mb-12 text-center">
-            Nos Services
-          </h2>
+      {/* SERVICES SECTION */}
+      <section className="py-24 px-6 lg:px-12 bg-slate-50 relative overflow-hidden">
+        {/* Subtle background decoration */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-emerald-500/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-teal-500/5 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/4" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
+            <div className="inline-flex items-center gap-2 justify-center mb-2">
+              <span className="w-8 h-px bg-emerald-600"></span>
+              <h2 className="text-emerald-600 font-semibold tracking-wider uppercase text-sm">
+                Nos Expériences
+              </h2>
+              <span className="w-8 h-px bg-emerald-600"></span>
+            </div>
+            <h3 className="text-4xl md:text-5xl font-bold text-slate-900">
+              Ce que nous offrons
+            </h3>
+            <p className="text-lg text-slate-600">
+              Profitez de services pensés pour rendre votre séjour aussi confortable
+              qu'inoubliable.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => {
               const IconComponent =
@@ -150,25 +195,35 @@ export default function HomePage() {
               return (
                 <Card
                   key={service.id}
-                  className="text-center hover:shadow-xl transition-shadow duration-300"
+                  className="group bg-white/70 backdrop-blur-xl border-white/80 shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-emerald-900/10 rounded-[2rem] transition-all duration-300 hover:-translate-y-2 border-transparent hover:border-emerald-100/50 overflow-hidden"
                 >
-                  <CardHeader>
-                    <div className="flex justify-center mb-4">
-                      <IconComponent className="h-12 w-12 text-green-800" />
+                  <CardHeader className="p-8 pb-0">
+                    <div className="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-8 isolate relative">
+                      <div className="absolute inset-0 bg-emerald-600 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300" />
+                      <IconComponent className="h-7 w-7 group-hover:scale-110 transition-transform duration-300" />
                     </div>
-                    <CardTitle className="text-xl text-green-800">
+                    <CardTitle className="text-2xl font-bold text-slate-900 mb-4">
                       {service.name}
                     </CardTitle>
-                    <CardDescription className="text-gray-600">
+                    <CardDescription className="text-slate-600 text-base leading-relaxed">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
+                  <CardContent className="p-8 pt-8">
+                    <Link
+                      href="#"
+                      className="inline-flex items-center text-sm font-bold text-slate-900 group-hover:text-emerald-600 transition-colors uppercase tracking-wider"
+                    >
+                      En savoir plus
+                      <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </CardContent>
                 </Card>
               );
             })}
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
