@@ -52,14 +52,14 @@ export default function HomePage() {
               size="lg"
               className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-8 py-7 text-lg font-medium shadow-lg shadow-emerald-900/40 transition-all hover:scale-105"
             >
-              À propos de Niafrang
+              <Link href="/about">À propos de Niafrang</Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-md rounded-full px-8 py-7 text-lg font-medium transition-all"
             >
-              Découvrir Niafrang
+              <Link href="/nature">Découvrir Niafrang</Link>
             </Button>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function HomePage() {
               </h3>
             </div>
             <Button variant="outline" className="rounded-full shrink-0 border-slate-200 text-slate-700 hover:bg-slate-50 px-6">
-              Voir toute la galerie
+              <Link href="/nature">Voir toute la galerie</Link>
             </Button>
           </div>
 
@@ -195,21 +195,22 @@ export default function HomePage() {
               return (
                 <Card
                   key={service.id}
-                  className="group bg-white/70 backdrop-blur-xl border-white/80 shadow-lg shadow-slate-200/50 hover:shadow-2xl hover:shadow-emerald-900/10 rounded-[2rem] transition-all duration-300 hover:-translate-y-2 border-transparent hover:border-emerald-100/50 overflow-hidden"
+                  size="sm"
+                  className="group bg-white/70 backdrop-blur-xl border-white/80 shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-emerald-900/10 rounded-3xl transition-all duration-300 hover:-translate-y-1 border-transparent hover:border-emerald-100/50 overflow-hidden gap-0 p-0"
                 >
-                  <CardHeader className="p-6 pb-0">
-                    <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 isolate relative">
+                  <CardHeader className="px-5 pt-5 pb-2">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3 isolate relative">
                       <div className="absolute inset-0 bg-emerald-600 opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300" />
-                      <IconComponent className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
+                      <IconComponent className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-slate-900 mb-2">
+                    <CardTitle className="text-lg font-bold text-slate-900 mb-1">
                       {service.name}
                     </CardTitle>
-                    <CardDescription className="text-slate-600 text-sm leading-relaxed">
+                    <CardDescription className="text-slate-600 text-sm leading-relaxed line-clamp-3">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="p-6 pt-4">
+                  <CardContent className="px-5 pb-5 pt-2">
                     <Link
                       href="#"
                       className="inline-flex items-center text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition-colors uppercase tracking-wider"

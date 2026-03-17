@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Niafrang - Village Tourisme en Casamance, Sénégal",
+  title: "Niafrang - Village Tourisme",
   description:
     "Découvrez Niafrang, un village touristique authentique en Casamance au Sénégal. Explorez les plages, les mangroves et la culture locale. Réservez votre adventure inoubliable dès maintenant.",
   keywords:
@@ -44,7 +44,9 @@ export default function RootLayout({
         {/* childer */}
         {children}
         {/* footer */}
-        <Footer />
+        <div id="contact">
+          <Footer />
+        </div>
       </body>
     </html>
   );
