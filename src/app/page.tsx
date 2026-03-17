@@ -13,8 +13,6 @@ import { MapPin, Home, Utensils, ChevronRight, Compass } from "lucide-react";
 import Link from "next/link";
 
 export default function HomePage() {
-
-
   return (
     <div className="bg-slate-50 relative selection:bg-emerald-200">
       {/* HERO SECTION */}
@@ -44,7 +42,7 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="max-w-2xl text-lg sm:text-xl text-white/80 font-light leading-relaxed mb-10 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
-            Évadez-vous dans un village balnéaire authentique où la nature
+            Bienvenue à Niafrang! Village touristique au Sénégal où la nature
             sauvage embrasse une culture vibrante et chaleureuse.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500 w-full sm:w-auto">
@@ -91,7 +89,11 @@ export default function HomePage() {
               </h2>
             </div>
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.15]">
-              Une harmonie parfaite entre <span className="italic font-light text-slate-700">nature et traditions</span>.
+              Une harmonie parfaite entre{" "}
+              <span className="italic font-light text-slate-700">
+                nature et traditions
+              </span>
+              .
             </h3>
             <p className="text-lg text-slate-600 leading-relaxed">
               Plongez au cœur de la Casamance, où Niafrang vous invite à une
@@ -129,7 +131,10 @@ export default function HomePage() {
                 Paysages à couper le souffle.
               </h3>
             </div>
-            <Button variant="outline" className="rounded-full shrink-0 border-slate-200 text-slate-700 hover:bg-slate-50 px-6">
+            <Button
+              variant="outline"
+              className="rounded-full shrink-0 border-slate-200 text-slate-700 hover:bg-slate-50 px-6"
+            >
               <Link href="/nature">Voir toute la galerie</Link>
             </Button>
           </div>
@@ -149,7 +154,9 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-                  <h4 className="text-2xl font-bold text-white mb-2">{image.name}</h4>
+                  <h4 className="text-2xl font-bold text-white mb-2">
+                    {image.name}
+                  </h4>
                   <p className="text-white/80 text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     {image.description}
                   </p>
@@ -179,8 +186,8 @@ export default function HomePage() {
               Ce que nous offrons
             </h3>
             <p className="text-lg text-slate-600">
-              Profitez de services pensés pour rendre votre séjour aussi confortable
-              qu'inoubliable.
+              Profitez de services pensés pour rendre votre séjour aussi
+              confortable qu'inoubliable.
             </p>
           </div>
 

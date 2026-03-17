@@ -23,29 +23,42 @@ export default function Header() {
     { id: 1, label: "Accueil", href: "/" },
     { id: 2, label: "À propos", href: "/about" },
     { id: 3, label: "Nature et Culture", href: "/nature" },
-    { id: 4, label: "Contact", href: "/#contact" },
+    {
+      id: 4,
+      label: "PCB",
+      href: "https://naturaljustice.org/publication/protocole-communautaire-bioculturel-de-la-communaute-de-niafrang/",
+    },
+    { id: 5, label: "Contact", href: "/#contact" },
   ];
 
   return (
     <>
       <header
-        className={`w-full px-6 lg:px-12 py-4 flex justify-between items-center gap-5 fixed bg-white/20 z-50 transition-all duration-300 ${scrolled || !isHome
-          ? "bg-white/90 backdrop-blur-lg shadow-sm border-b border-gray-200/50"
-          : "bg-transparent border-b border-transparent"
-          }`}
+        className={`w-full px-6 lg:px-12 py-4 flex justify-between items-center gap-5 fixed bg-white z-50 transition-all duration-300 ${
+          scrolled || !isHome
+            ? "bg-white/90 backdrop-blur-lg shadow-sm border-b border-gray-200/50"
+            : "bg-transparent text-black border-b border-transparent"
+        }`}
       >
         {/* LOGO */}
         <div>
           <Link href="/">
-            <h1 className={`text-2xl font-black tracking-tighter transition-colors duration-300 ${scrolled || !isHome ? "text-emerald-900" : "text-white"}`}>
-              Niafrang<span className={scrolled || !isHome ? "text-emerald-500" : "text-emerald-300"}>.</span>
+            <h1
+              className={`text-2xl font-black tracking-tighter transition-colors duration-300 ${scrolled || !isHome ? "text-emerald-900" : "text-black"}`}
+            >
+              Niafrang
+              <span
+                className={
+                  scrolled || !isHome ? "text-emerald-500" : "text-emerald-300"
+                }
+              ></span>
             </h1>
           </Link>
         </div>
         {/* button menu */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={`md:hidden cursor-pointer transition-colors duration-300 ${scrolled || !isHome ? "text-slate-900" : "text-white"}`}
+          className={`md:hidden cursor-pointer transition-colors duration-300 ${scrolled || !isHome ? "text-slate-900" : "text-black"}`}
         >
           {isMenuOpen ? <X /> : <Menu />}
         </button>
@@ -56,10 +69,15 @@ export default function Header() {
               <li key={link.id}>
                 <Link
                   href={link.href}
-                  className={`text-sm font-semibold transition-colors hover:text-emerald-500 ${pathname === link.href
-                    ? (scrolled || !isHome ? "text-emerald-600" : "text-emerald-300")
-                    : (scrolled || !isHome ? "text-slate-600" : "text-white/90")
-                    }`}
+                  className={`text-sm font-semibold transition-colors hover:text-emerald-500 ${
+                    pathname === link.href
+                      ? scrolled || !isHome
+                        ? "text-emerald-600"
+                        : "text-emerald-300"
+                      : scrolled || !isHome
+                        ? "text-slate-600"
+                        : "text-black/90"
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -71,7 +89,10 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden" onClick={() => setIsMenuOpen(false)}>
+        <div
+          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
+          onClick={() => setIsMenuOpen(false)}
+        >
           <nav
             className="absolute top-16 left-4 right-4 bg-white/95 backdrop-blur-xl shadow-2xl rounded-2xl p-4 border border-white"
             onClick={(e) => e.stopPropagation()}
@@ -82,8 +103,11 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-3 rounded-xl font-medium transition-colors ${pathname === link.href ? "bg-emerald-50 text-emerald-600" : "text-slate-700 hover:bg-slate-50"
-                      }`}
+                    className={`block px-4 py-3 rounded-xl font-medium transition-colors ${
+                      pathname === link.href
+                        ? "bg-emerald-50 text-emerald-600"
+                        : "text-slate-700 hover:bg-slate-50"
+                    }`}
                   >
                     {link.label}
                   </Link>
