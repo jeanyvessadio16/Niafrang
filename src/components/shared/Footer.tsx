@@ -19,7 +19,7 @@ export default function Footer() {
             <div className="space-y-2 text-gray-300">
               <p>📍 Niafrang, Casamance, Sénégal</p>
               <p>📞 +221 78 840 95 14</p>
-              <p>✉️ niafrangtourisme@gmail.com</p>
+              {/* <p>✉️ niafrangtourisme@gmail.com</p> */}
             </div>
           </div>
 
